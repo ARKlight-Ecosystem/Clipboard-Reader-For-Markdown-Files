@@ -6,9 +6,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Clip Reader</title>
   <link rel="stylesheet" href="styles.css">
+<!-- arklight:pwa:head -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#3d6b5c">
+<!-- /arklight:pwa:head -->
 </head>
 <body>
 <div class="app-shell"><header class="topbar"><div><h1 class="brand">Clip Reader</h1><p class="tagline">Markdown from your clipboard, rendered and read aloud.</p></div></header><main class="content"><section class="toolbar" id="toolbar"><button id="btn-paste" class="btn btn-primary">Paste</button><button id="btn-clear" class="btn">Clear</button><button id="btn-speak" class="btn btn-accent">Listen</button><button id="btn-pause" class="btn">Pause</button><button id="btn-stop" class="btn">Stop</button><div class="toolbar-spacer"></div><div class="rate-control"><label for="rate-range">Speed</label><input type="range" id="rate-range" min="0.5" max="1.8" step="0.1" value="1" class="rate-slider" /></div></section><div class="status-bar"><p id="status-text">Paste something to get started.</p><p id="meta-text"></p></div><div class="reader-card" id="reader-card"><div id="empty-state" class="empty-state"><p class="empty-state-icon">📋</p><h2>Nothing here yet</h2><p>Copy some Markdown anywhere on your phone -- notes, a README, a message -- then tap Paste.</p></div><article id="md-preview" class="md-preview hidden"></article></div></main><footer class="footer"><p>Parsed and read on-device. Nothing you paste leaves your phone.</p></footer><div id="toast" class="toast"></div></div>
 <script src="arklight.js" defer></script>
+<!-- arklight:pwa:sw -->
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("sw.js");
+      });
+    }
+  </script>
+<!-- /arklight:pwa:sw -->
 </body>
 </html>

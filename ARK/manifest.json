@@ -1,0 +1,10 @@
+{
+  "name": "Clip Reader",
+  "short_name": "ClipReader",
+  "start_url": "index.html",
+  "scope": "./",
+  "display": "standalone",
+  "theme_color": "#3d6b5c",
+  "background_color": "#fbfaf7",
+  "icons": []
+}

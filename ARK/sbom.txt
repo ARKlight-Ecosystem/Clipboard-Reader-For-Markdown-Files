@@ -9,7 +9,7 @@ DataLicense: CC0-1.0
 DocumentName: clip-reader-build-manifest
 SPDXID: SPDXRef-DOCUMENT
 Creator: Tool: ARKlight-v0.66 (alpha)
-Created: 2026-09-20T22:09:25Z
+Created: 2026-09-20T23:05:47Z
 
 ## -- ARKlight itself --------------------------------------------------
 PackageName: ARKlight
