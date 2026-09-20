@@ -1,0 +1,53 @@
+## ARKlight build manifest (SBOM-shaped, SPDX tag-value inspired)
+## This is NOT a validated/spec-conformant SPDX document -- see
+## arklight/compiler/sbom.py's module docstring for exactly what's
+## missing and why. It describes what THIS build actually contains,
+## not what ARKlight the compiler is generally capable of.
+
+SPDXVersion: SPDX-2.3-informal
+DataLicense: CC0-1.0
+DocumentName: clip-reader-build-manifest
+SPDXID: SPDXRef-DOCUMENT
+Creator: Tool: ARKlight-v0.66 (alpha)
+Created: 2026-09-20T22:09:25Z
+
+## -- ARKlight itself --------------------------------------------------
+PackageName: ARKlight
+SPDXID: SPDXRef-Package-arklight
+PackageVersion: 0.66
+PackageSupplier: Organization: ARKlight
+PackageLicenseDeclared: GPL-3.0-or-later
+PrimaryPackagePurpose: APPLICATION
+PackageComment: The compiler that produced this build.
+Relationship: SPDXRef-DOCUMENT DESCRIBES SPDXRef-Package-arklight
+
+## -- First-party runtime pieces shipped in this build ------------------
+## Authored in-tree by ARKlight's own author, not installed separately --
+## but held to the same ARKlight Component Collections (ACC) interface
+## standards a real installable ACC package would be (see
+## arklight/capabilities.py). Only entries this build's IR actually
+## references are listed, same "only ship what's used" principle the
+## compiler itself follows when it renders the runtime JS.
+
+PackageName: script-extension
+SPDXID: SPDXRef-experimental-script-extension
+PackageVersion: 0.66
+PackageSupplier: Person: ARKlight author (in-tree, ACC-standard)
+PrimaryPackagePurpose: LIBRARY
+PackageComment: experimental/legacy API, shipped as part of ARKlight's own runtime.
+Relationship: SPDXRef-DOCUMENT DESCRIBES SPDXRef-experimental-script-extension
+
+## -- ACC (ARKlight Component Collections) packages ------------------
+## ACC is ARKlight's package manager: external distributions that
+## advertise capabilities via the `arklight.capabilities` entry-point
+## group (arklight/capabilities.py) -- the same relationship npm has
+## to Node.js, not merged into ARKlight itself.
+##
+## Compiler-side ACC support is currently Stage 1 (discovery only) --
+## nothing in the compiler consumes a capability during a build yet,
+## so there is no way to know which of these THIS build actually
+## used. Everything below is installed on this machine, not confirmed
+## used by this build -- do not read this section with the same
+## "actually used" guarantee the rest of this file makes.
+
+## No ACC packages installed on this machine.
